@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>My Webpage</title>
+        <script>
+            function greet()
+            {
+                let name = document.querySelector("#name").value;
+                if(name === "")
+                {
+                    name = "world";    
+                }
+                document.querySelector("#result").innerHTML = "Welcome to my page, " + name + "!";
+                document.querySelector("#result2").innerHTML = "Choose from any of the pages above: Interests, Travels, & About Me! ";
+                document.querySelector("#result3").innerHTML ="Anyway, I hope you learn more about me!";
+
+            }
+        </script>
+    </head>
+    <body>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="interests.html">Interests</a>   
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="travels.html">Travels</a>   
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="aboutme.html">About Me</a>   
+            </li>
+        </ul>
+        <div>
+            <div class="img_format">
+                <img src="hello.png" alt="HELLO!" width="600" height="675">
+            </div>
+            
+            <div class="text_format">
+                <h1>Swathi Badrinarayanan</h1>
+            </div>
+            
+            <form onsubmit="greet(); return false;" class="text_format_2">
+                <p font-size: large>Name: </p>
+                <input type="text" id="name">
+                <input type="submit">
+            </form> 
+            
+            <div id="result"; class="text_format_3"></div>
+            
+            <div id="result2"; class="text_format_4"></div>
+            
+            <div id="result3"; class="text_format_5"></div>
+        
+        </div>
+    
+    </body>
+</html>
+
