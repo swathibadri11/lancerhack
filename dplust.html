@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>My Webpage</title>
+    </head>
+    <script>
+        function getSelectValues(select) 
+        {
+            return [].map.call(select.selectedOptions, function(option) {
+                return option.value;
+            })
+        }
+        
+        function conditionid()
+        {
+            let symptoms = getSelectValues(document.querySelector("#symptoms")); 
+            var diagnosis;
+            for (var i=0, iLen=symptoms.length; i<iLen; i++) {
+                if (symptoms[i] == "focus_far"){
+                    diagnosis = "myopia";
+                }
+                if (symptoms[i] == "focus_near"){
+                    diagnosis = "hyperopia";
+                }
+                if(symptoms[i] == "insight" || symptoms[i] == "shimmer" || symptoms[i] == "tunnelvis"){
+                    diagnosis = "peripheral";
+                }
+            }
+            
+            
+        
+            console.log(diagnosis);
+            return diagnosis;
+            //document.getElementById("#result").innerHTML = diagnosis
+            //document.getElementById("symptoms").innerHTML = symptoms.join("<br>");
+            
+       }
+       
+       function getDiagnosis()
+       {
+           var diagnosis = conditionid();
+           window.location.href = diagnosis + ".html"
+       }
+       
+    </script>
+    <body>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>   
+            </li>
+             <li class="nav-item">
+                <a class="nav-link active" href="#">Diagnosis + Treatment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="opthamologist.html">CA Optometrists</a>
+            </li>
+        </ul>
+        <div class="text_format_7">
+            <h1>Diagnosis</h1>
+        </div>
+        <div class="diagnosis_format">
+            <p>Choose your symptoms from the list below. Please select at least 3.</p>
+            <p>Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
+        </div>
+        <div class="diagnosis_format_2">
+            <label for="symptoms">Here:</label>
+            <select id="symptoms" name="symptoms" size="7" multiple>
+              <option value="focus_far">Cannot focus on faraway objects</option>
+              <option value="focus_near">Cannot focus on near objects</option>
+              <option value="squintblurry">Squinting + Blurry vision</option>
+              <option value="headache">Headache</option>
+              <option value="insight">Cannot see things not in line of sight</option>
+              <option value="shimmer">Shimmers of light</option>
+              <option value="tunnelvis">Tunnel Vision</option>
+            </select>
+            <button onclick="conditionid(); getDiagnosis();">Submit</button>
+        </div>
+        
+    </body>
+</html>
+
+
+
